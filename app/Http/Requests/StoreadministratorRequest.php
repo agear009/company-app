@@ -22,7 +22,8 @@ class StoreadministratorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'levelUser' =>'required'
+            'levelUser' =>'required',
+            'keterangan' =>'required'
         ];
     }
 }

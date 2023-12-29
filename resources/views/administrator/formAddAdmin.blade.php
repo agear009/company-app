@@ -47,6 +47,20 @@
 
                                 </div>
                                 </div>
+                                <div class="row mb-3">
+                                  <label for="keterangan" class="col-sm-2 col-form-label">Deskripsi Level</label>
+                                  <div class="col-sm-4">
+                                    <input type="text" class="form-control form-control-sm @error('levelUser') is-invalid @enderror" id="keterangan" name="keterangan" autofocus required value="{{ old('levelUser') }}">
+                                        @error('levelUser')
+
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+
+                                        @enderror
+
+                                </div>
+                                </div>
 
                                 <button type="submit" class="btn btn-primary">Save</button>
 

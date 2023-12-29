@@ -55,7 +55,7 @@ class UsersController extends Controller
         $user->password = $request->Password;
         $user->save();
 
-        return redirect('users')->with('msg','add data users successfully');
+        return redirect('users')->with('msg','add data User successfully');
 
 
     }

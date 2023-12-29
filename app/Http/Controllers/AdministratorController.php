@@ -36,9 +36,10 @@ class AdministratorController extends Controller
         $validate =$request->validated();
         $administrators = new administrator;
         $administrators->levelUser = $request->levelUser;
+        $administrators->keterangan = $request->keterangan;
         $administrators->save();
 
-        return redirect('administrator')->with('msg','add data users successfully');
+        return redirect('administrator')->with('msg','add data  Level users successfully');
 
     }
 

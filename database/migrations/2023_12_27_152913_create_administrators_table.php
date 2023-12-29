@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('administrators', function (Blueprint $table) {
             $table->id();
             $table->string('levelUser',100);
+            $table->string('keterangan',255);
             $table->timestamps();
         });
     }
