@@ -46,9 +46,18 @@ class AdministratorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(administrator $administrator)
+    // public function show(administrator $administrator,$id)
+     public function show(administrator $administrator,$id)
+
     {
-        //
+
+        // echo $levelUser;
+        $data =$administrator->find($id);
+       return view('administrator.formedit')->with([
+                'id'=> $id,
+                'levelUser'=> $data->levelUser,
+                'keterangan'=> $data->keteranga
+      ]);
     }
 
     /**
@@ -62,16 +71,25 @@ class AdministratorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateadministratorRequest $request, administrator $administrator)
+    public function update(UpdateadministratorRequest $request, administrator $administrator,$id)
     {
-        //
+         $data =$administrator->find($id);
+
+        $data->levelUser = $request->levelUser;
+        $data->keterangan = $request->keterangan;
+        $data->save();
+
+        return redirect('administrator')->with('msg','data'.$data->levelUser.'  Level users successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(administrator $administrator)
+    public function destroy(administrator $administrator,$id)
     {
-        //
+        $data =$administrator->find($id);
+        $data->delete();
+
+        return redirect('administrator')->with('msg',' Delete Level '.$data->levelUser.' successfully');
     }
 }

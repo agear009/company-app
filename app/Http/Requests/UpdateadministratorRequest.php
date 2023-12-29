@@ -11,7 +11,7 @@ class UpdateadministratorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -19,10 +19,31 @@ class UpdateadministratorRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            //
-        ];
-    }
+
+        public function rules(): array
+        {
+            return [
+                'levelUser' =>'required|max:255|min:3',
+                'keterangan' =>'required|max:255|min:6'
+
+            ];
+        }
+        public function messages():array
+        {
+            return[
+                'levelUser.required' =>':attribute tidak boleh kosong',
+                'keterangan.required' =>':attribute tidak boleh kosong',
+
+            ];
+        }
+        public function message():array
+        {
+            return[
+
+                'user'=>'userID',
+                'name'=>'nama lengkap',
+
+            ];
+        }
+
 }

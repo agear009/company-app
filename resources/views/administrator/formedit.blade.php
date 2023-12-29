@@ -30,7 +30,7 @@
                         </div>
 
                     @endif
-                        <form method="POST" name="administratoradd" action="{{ url('administrator') }}">
+                        <form method="POST" name="administratoradd" action="{{ url('administrator/'.$id) }}">
                             @csrf
                             @method('PUT')
 

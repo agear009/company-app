@@ -29,9 +29,9 @@
                     <th>id User</th>
                     <th>Level User</th>
                     <th>Keterangan</th>
-                    <th>User</th>
-                    <th>Name</th>
-                    <th>Update</th>
+                    <th>Dibuat</th>
+                    <th>Dieperbaharui</th>
+                    <th>Menu</th>
                </thead>
                <tbody>
                 {{-- menapilkan database administrator --}}
@@ -41,9 +41,18 @@
                             <td>{{ $row->iduser }}</td>
                             <td>{{ $row->levelUser}}</td>
                             <td>{{ $row->keterangan }}</td>
-                            <td>{{ $row->keterangan }}</td>
-                            <td>{{ $row->keterangan}}</td>
-                            <td>{{ $row->keterangan }}</td>
+                            <td>{{ $row->created_at }}</td>
+                            <td>{{ $row->updated_at}}</td>
+                            <td>
+                                <button onclick="window.location='{{ url('administrator/'.$row->id) }}'" type="button" class="btn btn-sm btn-info" title="edit data"><i class="fas fa-edit"></i></button>
+                               <form style="display: inline" method="POST" action="{{ url('administrator/'.$row->id) }}" onsubmit="return deleteData('{{ $row->levelUser }}')">
+
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onclick="window.location='{{ url('administrator/'.$row->id) }}'" type="submit" class="btn btn-sm btn-danger" title="Delete data"><i class="fas fa-trash-alt"></i></button>
+
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                </tbody>
@@ -51,4 +60,12 @@
 
     </div>
   </div>
+  <script>
+
+        function deleteData(levelUser){
+            pesan = confirm('yakin anda akan menghapus level ${levelUser} ?');
+            if (pesan) return true;
+            else return false;
+        }
+  </script>
   @endsection

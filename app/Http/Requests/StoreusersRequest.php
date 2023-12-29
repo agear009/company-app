@@ -34,7 +34,21 @@ class StoreusersRequest extends FormRequest
     public function messages():array
     {
         return[
-            'user.required' =>'tidak boleh kosong',
+            'user.required' =>':attribute tidak boleh kosong',
+            'password.required' =>'tidak boleh kosong',
+            'name.required' =>':attribute tidak boleh kosong',
+            'phone.required' =>'tidak boleh kosong',
+            'email.required' =>'tidak boleh kosong',
+            'address.required' =>'tidak boleh kosong'
+        ];
+    }
+    public function message():array
+    {
+        return[
+
+            'user'=>'userID',
+            'name'=>'nama lengkap',
+
         ];
     }
 }
