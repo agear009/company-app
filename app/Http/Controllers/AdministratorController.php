@@ -47,17 +47,17 @@ class AdministratorController extends Controller
      * Display the specified resource.
      */
     // public function show(administrator $administrator,$id)
-     public function show(administrator $administrator,$id)
+     public function show(administrator $administrator)
 
     {
 
         // echo $levelUser;
-        $data =$administrator->find($id);
-       return view('administrator.formedit')->with([
-                'id'=> $id,
-                'levelUser'=> $data->levelUser,
-                'keterangan'=> $data->keteranga
-      ]);
+    //     $data =$administrator->find($id);
+    //    return view('administrator.formedit')->with([
+    //             'id'=> $id,
+    //             'levelUser'=> $data->levelUser,
+    //             'keterangan'=> $data->keteranga
+    //   ]);
     }
 
     /**
@@ -73,6 +73,7 @@ class AdministratorController extends Controller
      */
     public function update(UpdateadministratorRequest $request, administrator $administrator,$id)
     {
+
          $data =$administrator->find($id);
 
         $data->levelUser = $request->levelUser;

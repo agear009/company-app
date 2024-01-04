@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-    
+
 
 <div class="card">
 
@@ -14,5 +14,5 @@
      </div>
     </div>
   </div>
+
   @endsection
-  

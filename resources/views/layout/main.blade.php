@@ -8,9 +8,9 @@
     <link href="{{ asset('/') }}asset/plugins/fontawesome/css/all.min.css" rel="stylesheet">
 </head>
   <body>
-  
+
     {{-- start nav  --}}
-    
+
     <nav class="navbar navbar-expand-lg bg-success navbar-dark">
         <div class="container">
           <a class="navbar-brand" href="#">Corp</a>
@@ -27,7 +27,14 @@
                 <a class="nav-link  {{ (request()->segment('1')=='administrator')? 'active':'' }}" aria-current="page" href="{{ url('administrator') }}">
                     <i class="fas fa-user"></i> Administrator</a>
               </li>
-              
+
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </li>
+
             </ul>
           </div>
         </div>
@@ -39,14 +46,14 @@
 
       <div class="mt-2">
         <div class="container">
-        
+
             @yield('content')
 
       </div>
     </div>
     {{-- end content --}}
-    
+
       <script src="{{ asset('/') }}asset/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  
+
     </body>
 </html>
